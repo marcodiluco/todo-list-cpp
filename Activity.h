@@ -14,6 +14,9 @@ private:
 public:
     Activity(const std::string &Description,const Date &date) : Description(Description),date(date),Complete(false){}
 
+    bool IsComplete() const;
+    void SetComplete();
+    void SetUnComplete();     //nel caso si voglia rifare
 };
 
 
