@@ -1,4 +1,5 @@
 #include Date.h
+#include <iostream>
 
 bool Date::IsBisestile(int Year) const {
     if (Year % 4 == 0) {
@@ -65,4 +66,19 @@ void Date::SetYear(int year){
     }else{
         std::cout << "errore!!,anno non valido!!" << std::endl;
     }
+}
+
+void Date::PrintCurrentDate(){
+    std::cout << "Data corrente : ";
+    if(Day<10){
+        std::cout << "0" << Day << "/";
+    }else{
+        std::cout << Day << "/";
+    }
+    if(Month<10){
+        std::cout << "0" << Month << "/";
+    }else{
+        std::cout << Month << "/";
+    }
+    std::cout << Year << std::endl;
 }

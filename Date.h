@@ -1,6 +1,7 @@
 #ifndef TODOLIST_DATE_H
 #define TODOLIST_DATE_H
 
+
 class Date {
 private:
     int Day;
@@ -23,21 +24,7 @@ public:
     void SetMonth(int Month);
     void SetYear(int Year);
 
-
+    void PrintCurrentDate();
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #endif
