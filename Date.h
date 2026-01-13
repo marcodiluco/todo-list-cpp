@@ -3,6 +3,7 @@
 
 
 class Date {
+
 private:
     int Day;
     int Month;

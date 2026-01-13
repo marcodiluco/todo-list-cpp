@@ -1,4 +1,4 @@
-#include Date.h
+#include "Date.h"
 #include <iostream>
 
 bool Date::IsBisestile(int Year) const {
@@ -37,7 +37,7 @@ int Date::GetDay() const {
 int Date::GetMonth() const {
     return Month;
 }
-int Date::getYear() const {
+int Date::GetYear() const {
     return Year;
 }
 
