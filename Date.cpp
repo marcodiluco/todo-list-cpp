@@ -12,7 +12,7 @@ bool Date::IsBisestile(int Year) const {
     }
     return false;            //non bisestile perchè non è divisibile per 4
 }
-int Date::DaysAvaible(int Month,int Year) const {
+int Date::DaysAvailable(int Month,int Year) const {
     switch (Month){
         case 1: case 3: case 5: case 7:
         case 8: case 10: case 12:         //gennaio,marzo,maggio,luglio,agosto,ottobre,dicembre ne hanno 31
@@ -26,7 +26,7 @@ int Date::DaysAvaible(int Month,int Year) const {
                 return 28;
             }
         default:
-            return 30;       // se qualcuno passa un numero maggiore di 12
+            return 30;       // se qualcuno passa un numero maggiore di 12 o 0
     }
 }
 
@@ -40,6 +40,29 @@ int Date::getYear() const {
     return Year;
 }
 
-void Date::SetDay(int Day){
-
+void Date::SetDay(int day){
+    if(day>=1 && day<=DaysAvailable(Month,Year))
+        Day=day;
+    else
+        std::cout << "errore!!,giorno non valido per questo mese e anno!!" << std::endl;
+}
+void Date::SetMonth(int month){
+    if(month>=1 && month<=12) {
+        Month = month;
+        if (Day>DaysAvailable(Month, Year)) {                      //controllo che il giorno corrente vada bene per il mese scelto ora
+            std::cout << "errore!!,giorno attuale non valido per questo mese!!" << std::endl;
+        }
+    }else{
+        std::cout << "errore!!,mese non valido!!" << std::endl;
+    }
+}
+void Date::SetYear(int year){
+    if(year>0){
+        Year=year;
+        if(Month==2 && Day>DaysAvailable(Month, Year)){             //controlliamo solo febbraio perchè cambiando l'anno solo febbraio cambia i giorni
+            std::cout << "errore!!,ti ricordo che febbraio è bisestile!!" << std::endl;                           //gli altri sono fissi
+        }
+    }else{
+        std::cout << "errore!!,anno non valido!!" << std::endl;
+    }
 }
