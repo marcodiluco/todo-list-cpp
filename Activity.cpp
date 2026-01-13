@@ -12,3 +12,10 @@ void Activity::SetComplete() {
 void Activity::SetUnComplete() {
     Complete = false;
 }
+
+const std::string &Activity::GetDescription(){
+    return Description;
+}
+void Activity::SetDescription(const std::string &NewDescription) {
+    Description = NewDescription;
+}

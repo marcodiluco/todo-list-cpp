@@ -21,9 +21,9 @@ public:
     int GetYear() const;
 
     //Setter
-    void SetDay(int Day);
-    void SetMonth(int Month);
-    void SetYear(int Year);
+    void SetDay(int day);
+    void SetMonth(int month);
+    void SetYear(int year);
 
     void PrintCurrentDate();
 };

@@ -16,7 +16,10 @@ public:
 
     bool IsComplete() const;
     void SetComplete();
-    void SetUnComplete();     //nel caso si voglia rifare
+    void SetUnComplete();     //nel caso si voglia rifare l'attività
+
+    const std::string &GetDescription();
+    void SetDescription(const std::string &NewDescription);
 };
 
 
