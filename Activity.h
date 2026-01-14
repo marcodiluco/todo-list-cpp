@@ -20,6 +20,9 @@ public:
 
     const std::string &GetDescription();
     void SetDescription(const std::string &NewDescription);
+
+    const Date& GetDate();
+    void SetDate(const Date& NewDate);
 };
 
 

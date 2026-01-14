@@ -19,3 +19,10 @@ const std::string &Activity::GetDescription(){
 void Activity::SetDescription(const std::string &NewDescription) {
     Description = NewDescription;
 }
+
+const Date& Activity::GetDate() {
+    return date;
+}
+void Activity::SetDate(const Date& newDate) {
+    date = newDate;
+}
