@@ -12,7 +12,7 @@ private:
     bool Complete;
 
 public:
-    Activity(const std::string &Description,const Date &date) : Description(Description),date(date),Complete(false){}
+    Activity(const std::string &description,const Date &date) : Description(description),date(date),Complete(false){}
 
     bool IsComplete() const;
     void SetComplete();
