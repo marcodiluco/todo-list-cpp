@@ -25,7 +25,7 @@ public:
     void SetMonth(int month);
     void SetYear(int year);
 
-    void PrintCurrentDate();
+    void PrintCurrentDate() const;
 };
 
 #endif

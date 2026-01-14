@@ -26,3 +26,14 @@ const Date& Activity::GetDate() {
 void Activity::SetDate(const Date& newDate) {
     date = newDate;
 }
+
+void Activity::PrintActivity() const {
+    if(Complete){
+        std::cout << "[X] : ";
+    }else{
+        std::cout << "[] : ";
+    }
+    std::cout << Description << " - scadenza: ";
+    date.PrintCurrentDate();
+    std::cout << std::endl;
+}

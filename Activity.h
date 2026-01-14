@@ -23,16 +23,9 @@ public:
 
     const Date& GetDate();
     void SetDate(const Date& NewDate);
+
+    void PrintActivity() const;        //stampo attività
+
 };
-
-
-
-
-
-
-
-
-
-
 
 #endif

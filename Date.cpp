@@ -68,8 +68,7 @@ void Date::SetYear(int year){
     }
 }
 
-void Date::PrintCurrentDate(){
-    std::cout << "Data corrente : ";
+void Date::PrintCurrentDate() const{
     if(Day<10){
         std::cout << "0" << Day << "/";
     }else{
