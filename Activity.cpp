@@ -13,7 +13,7 @@ void Activity::SetUnComplete() {
     Complete = false;
 }
 
-const std::string &Activity::GetDescription(){
+const std::string &Activity::GetDescription() const{
     return Description;
 }
 void Activity::SetDescription(const std::string &NewDescription) {

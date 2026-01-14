@@ -18,7 +18,7 @@ public:
     void SetComplete();
     void SetUnComplete();     //nel caso si voglia rifare l'attività
 
-    const std::string &GetDescription();
+    const std::string &GetDescription() const;
     void SetDescription(const std::string &NewDescription);
 
     const Date& GetDate();

@@ -13,6 +13,10 @@ private:
 public:
     ToDoList(const std::string& title);
 
+    //setter and getter title
+    void SetTitle(const std::string &title);
+    const std::string &GetTitle() const;
+
 };
 
 #endif
