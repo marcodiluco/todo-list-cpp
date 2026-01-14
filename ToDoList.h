@@ -3,6 +3,7 @@
 
 #include "Activity.h"
 #include <list>
+#include <string>
 
 class ToDoList{
 
@@ -16,6 +17,14 @@ public:
     //setter and getter title
     void SetTitle(const std::string &title);
     const std::string &GetTitle() const;
+
+    //getter TodoList
+    const std::list<Activity> &GetToDoList() const;
+
+    //operazioni sulla lista
+    void AddActivity(const Activity &activity);
+    void RemoveActivity(const std::string &description);
+
 
 };
 
