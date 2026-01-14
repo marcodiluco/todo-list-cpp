@@ -29,3 +29,29 @@ void ToDoList::RemoveActivity(const std::string &description) {
         }
     }
 }
+
+bool ToDoList::CheckActivity(const std::string& description) const {
+    for (auto flag=TodoList.begin(); flag!=TodoList.end(); flag++) {
+        if (flag->GetDescription() == description){
+            return flag->IsComplete();
+        }
+    }
+    std::cout << "attività non trovata!!" << std::endl;
+    return false;
+}
+void ToDoList::SetActivityComplete(const std::string& description) {
+    for (auto flag=TodoList.begin(); flag!=TodoList.end(); flag++) {
+        if (flag->GetDescription() == description){
+            flag->SetComplete();
+            break;
+        }
+    }
+}
+void ToDoList::SetActivityUnComplete(const std::string &description) {
+    for (auto flag=TodoList.begin(); flag!=TodoList.end(); flag++) {
+        if (flag->GetDescription() == description) {
+            flag->SetComplete();
+            break;
+        }
+    }
+}
