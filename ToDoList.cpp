@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include <string>
+#include <fstream>
+#include <sstream>
 
 ToDoList::ToDoList(const std::string& title) : Title(title) {}
 
@@ -116,4 +118,57 @@ void ToDoList::PrintUnCompleteActivities() const {
     if(j==false){
         std::cout << "nessuna attività da fare!!" << std::endl;
     }
+}
+
+bool ToDoList::SaveToFile(const std::string &Filename) const {
+    std::ofstream file(Filename);
+    if(!file.is_open()){
+        return false;
+    }
+    file << Title << std::endl;
+    for(const auto & activity:TodoList){
+        file << activity.GetDescription() << ";"
+        << activity.GetDate().GetDay() << "/" << activity.GetDate().GetMonth() << "/" << activity.GetDate().GetYear() << ";"
+        << activity.IsComplete() << std::endl;
+    }
+    file.close();
+    return true;
+}
+bool ToDoList::LoadToFile(const std::string &Filename) {
+    std::ifstream file(Filename);
+
+    if (!file.is_open()){
+        return false;
+    }
+
+    std::getline(file, Title);
+    std::string line;
+    while (std::getline(file, line)) {
+        std::stringstream ss(line);
+        std::string description;
+        std::string dateS;
+        std::string completeS;
+
+        std::getline(ss, description, ';');
+        std::getline(ss, dateS, ';');
+        std::getline(ss, completeS);
+
+        // ricostruisco la data
+        int d, m, y;
+        char slash;
+        std::stringstream dateSS(dateS);
+        dateSS >> d >> slash >> m >> slash >> y;
+
+        Date date;
+        date.SetYear(y);
+        date.SetMonth(m);
+        date.SetDay(d);
+        Activity activity(description, date);
+        if(completeS == "1"){
+            activity.SetComplete();
+        }
+        TodoList.push_back(activity);
+    }
+    file.close();
+    return true;
 }

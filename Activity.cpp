@@ -20,7 +20,7 @@ void Activity::SetDescription(const std::string &NewDescription) {
     Description = NewDescription;
 }
 
-const Date& Activity::GetDate() {
+const Date& Activity::GetDate() const{
     return date;
 }
 void Activity::SetDate(const Date& newDate) {

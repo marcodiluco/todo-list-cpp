@@ -3,7 +3,7 @@
 
 #include "Activity.h"
 #include <list>
-#include <string>
+#include <fstream>
 
 class ToDoList{
 
@@ -38,6 +38,10 @@ public:
     void PrintAllActivity() const;
     void PrintCompletedActivities() const;
     void PrintUnCompleteActivities() const;
+
+    //scrittura e lettura su disco
+    bool SaveToFile(const std::string &Filename) const;
+    bool LoadToFile(const std::string &Filename);
 
 };
 

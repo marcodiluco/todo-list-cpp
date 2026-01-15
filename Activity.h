@@ -21,7 +21,7 @@ public:
     const std::string &GetDescription() const;
     void SetDescription(const std::string &NewDescription);
 
-    const Date& GetDate();
+    const Date& GetDate() const;
     void SetDate(const Date& NewDate);
 
     void PrintActivity() const;        //stampo attività
