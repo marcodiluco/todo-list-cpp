@@ -13,7 +13,7 @@ int main(){
     std::cout << "1) Create a new ToDoList." << std::endl;
     std::cout << "2) Add a new Activity." << std::endl;
     std::cout << "3) Remove an Activity." << std::endl;
-    std::cout << "4) Modify an Activity." << std::endl;
+    std::cout << "4) Modify an Activity (date or description)." << std::endl;
     std::cout << "5) Mark Activity as Completed." << std::endl;
     std::cout << "6) Mark Activity as ToDo (not completed)." << std::endl;
     std::cout << "7) Display all Activities." << std::endl;
@@ -84,14 +84,64 @@ int main(){
                 std::cout << "Enter description of activity to remove: " << std::endl;
                 std::cin.ignore();
                 std::getline(std::cin,description);
-                if(MyList.RemoveActivity(description)) {
-                    std::cout << "Activity remove successfully." << std::endl;
-                }else{
+                if(MyList.RemoveActivity(description))
+                    std::cout << "Activity removed successfully." << std::endl;
+                else
                     std::cout << "No activity found with that description." << std::endl;
+                break;
+            }
+            case 4: {
+                std::string description,NewDescription;
+                int day, month, year;
+                Date newDate;
+                char choice;
+
+                std::cout << "Enter description of activity to modify: ";
+                std::cin.ignore();
+                std::getline(std::cin,description);
+                std::cout << "What do you want to modify?" <<std::endl;
+                std::cout << "d) Description or b) Date" <<std::endl;
+                std::cout << "Choose option: ";
+                std::cin.ignore();
+                std::cin >> choice;
+
+                if (choice == 'a') {
+                    std::cout << "Enter new description: ";
+                    std::cin.ignore();
+                    std::getline(std::cin,NewDescription);
+                    MyList.ModifyActDescription(description,NewDescription);
+                    std::cout << "Description modified successfully." << std::endl;
+                }
+                else if(choice == 'b'){
+                    do {
+                        std::cout << "Enter new date (day month year): ";
+                        std::cin >> day >> month >> year;
+                        std::cin.ignore();
+                        if (month < 1 || month > 12) {
+                            std::cout << "Invalid month! Must be 1-12. Try again." << std::endl;
+                            continue;
+                        }
+
+                        newDate.SetYear(year);
+                        int maxDay = newDate.DaysAvailable(month, year);
+                        if (day < 1 || day > maxDay) {
+                            std::cout << "Invalid day for this month! Try again." << std::endl;
+                            continue;
+                        }
+                        break;
+                    } while (true);
+
+                    newDate.SetDay(day);
+                    newDate.SetMonth(month);
+                    newDate.SetYear(year);
+                    MyList.ModifyActDate(description,newDate);
+                    std::cout << "Date modified successfully." << std::endl;
+                }
+                else {
+                    std::cout << "Invalid option." << std::endl;
                 }
                 break;
             }
-
 
 
         }
