@@ -31,6 +31,9 @@ void ToDoList::RemoveActivity(const std::string &description) {
         }
     }
 }
+void ToDoList::ClearAllActivities(){
+    TodoList.clear();
+}
 
 bool ToDoList::CheckActivity(const std::string &description) const {
     for (auto flag=TodoList.begin(); flag!=TodoList.end(); flag++){

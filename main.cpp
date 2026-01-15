@@ -22,8 +22,31 @@ int main(){
     std::cout << "10) Check if a single Activity is completed" << std::endl;
     std::cout << "11) Save Activities to File" << std::endl;
     std::cout << "12) Load Activities from File" << std::endl;
-    std::cout << "0) Exit" << std::endl;
+    std::cout << "0) Exit\n" << std::endl;
 
+    do{
+        std::cout << "***************************************************************" << std::endl;
+        std::cout << "Choose your option: ";
+        std::cin >> option;
+
+        switch(option){
+            case 0:
+                stop=true;
+                std::cout << "**** Thanks for using My ToDoList. GOODBYE!! ****" << std::endl;
+                break;
+
+            case 1:
+                std::string title;
+                std::cout << "Enter the title of the new ToDoList: ";
+                std::getline(std::cin, title);
+        }
+
+
+
+
+
+    }while (!stop);
 
     return 0;
+
 };
