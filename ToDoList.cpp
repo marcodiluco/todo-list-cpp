@@ -22,14 +22,16 @@ const std::list<Activity> &ToDoList::GetToDoList() const {
 void ToDoList::AddActivity(const Activity &activity) {
     TodoList.push_back(activity);
 }
-void ToDoList::RemoveActivity(const std::string &description) {
+bool ToDoList::RemoveActivity(const std::string &description) {
     for(auto flag=TodoList.begin(); flag!=TodoList.end(); ){             //preferisco mettere flag++ nell if per evitare problemi iteratori
         if(flag->GetDescription()==description){                                                   //non validi
             TodoList.erase(flag);
+            return true;
         }else{
             flag++;
         }
     }
+    return false;
 }
 void ToDoList::ClearAllActivities(){
     TodoList.clear();

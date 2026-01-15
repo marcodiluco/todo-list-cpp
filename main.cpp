@@ -84,8 +84,11 @@ int main(){
                 std::cout << "Enter description of activity to remove: " << std::endl;
                 std::cin.ignore();
                 std::getline(std::cin,description);
-                MyList.RemoveActivity(description);
-                std::cout << "Activity remove successfully." << std::endl;
+                if(MyList.RemoveActivity(description)) {
+                    std::cout << "Activity remove successfully." << std::endl;
+                }else{
+                    std::cout << "No activity found with that description." << std::endl;
+                }
                 break;
             }
 

@@ -24,7 +24,7 @@ public:
 
     //operazioni sulla lista
     void AddActivity(const Activity &activity);
-    void RemoveActivity(const std::string &description);
+    bool RemoveActivity(const std::string &description);
     void ClearAllActivities();
 
     //operazioni di check delle attività: sono state fatte?,la spunto perchè fatta o tolgo spunta perchè da fare o rifare
