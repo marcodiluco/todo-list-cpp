@@ -67,7 +67,6 @@ bool ToDoList::ModifyActDescription(const std::string &oldDescription, const std
     for (auto flag=TodoList.begin(); flag!=TodoList.end(); flag++){
         if(flag->GetDescription()==oldDescription){
             flag->SetDescription(newDescription);
-            std::cout << "Description modified." << std::endl;
             return true;
         }
     }
@@ -78,7 +77,6 @@ bool ToDoList::ModifyActDate(const std::string &description, const Date &Newdate
     for (auto flag=TodoList.begin(); flag!=TodoList.end(); flag++){
         if(flag->GetDescription()==description){
             flag->SetDate(Newdate);
-            std::cout << "date modified." << std::endl;
             return true;
         }
     }

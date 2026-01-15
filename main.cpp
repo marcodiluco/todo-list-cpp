@@ -100,9 +100,8 @@ int main(){
                 std::cin.ignore();
                 std::getline(std::cin,description);
                 std::cout << "What do you want to modify?" <<std::endl;
-                std::cout << "d) Description or b) Date" <<std::endl;
+                std::cout << "a) Description or b) Date" <<std::endl;
                 std::cout << "Choose option: ";
-                std::cin.ignore();
                 std::cin >> choice;
 
                 if (choice == 'a') {
@@ -142,6 +141,23 @@ int main(){
                 }
                 break;
             }
+            case 5: {
+                std::string description;
+                std::cout << "Enter description of activity to mark as completed: ";
+                std::cin.ignore();
+                std::getline(std::cin,description);
+                MyList.SetActivityComplete(description);
+                break;
+            }
+            case 6: {
+                std::string description;
+                std::cout << "Enter description of activity to mark as not completed: ";
+                std::cin.ignore();
+                std::getline(std::cin, description);
+                MyList.SetActivityUnComplete(description);
+                break;
+            }
+
 
 
         }
