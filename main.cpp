@@ -38,16 +38,19 @@ int main(){
             case 1:{
                 std::string title;
                 std::cout << "Enter the title of the new ToDoList: ";
+                std::cin.ignore();
                 std::getline(std::cin,title);
+                MyList.SetTitle(title);
                 MyList.ClearAllActivities();
-                std::cout << "New ToDo List: " << MyList.GetTitle() << " created!";
+                std::cout << "New ToDo List: " << MyList.GetTitle() << " created!" << std::endl;
                 break;
             }
-            case 2: {
+            case 2:{
                 std::string description;
                 int day,month,year;
                 Date date;
                 std::cout << "Enter activity description: ";
+                std::cin.ignore();
                 std::getline(std::cin,description);
 
                 do{
@@ -73,18 +76,22 @@ int main(){
                 date.SetYear(year);
                 Activity act(description,date);
                 MyList.AddActivity(act);
-                std::cout << "Activity added successfully.";
+                std::cout << "Activity added successfully." << std::endl;
+                break;
+            }
+            case 3:{
+                std::string description;
+                std::cout << "Enter description of activity to remove: " << std::endl;
+                std::cin.ignore();
+                std::getline(std::cin,description);
+                MyList.RemoveActivity(description);
+                std::cout << "Activity remove successfully." << std::endl;
                 break;
             }
 
 
 
         }
-
-
-
-
-
     }while(!stop);
 
     return 0;
