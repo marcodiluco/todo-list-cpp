@@ -26,10 +26,13 @@ public:
     void RemoveActivity(const std::string &description);
 
     //operazioni di check delle attività: sono state fatte?,la spunto perchè fatta o tolgo spunta perchè da fare o rifare
-    bool CheckActivity(const std::string& description) const;
-    void SetActivityComplete(const std::string& description);
-    void SetActivityUnComplete(const std::string& description);
+    bool CheckActivity(const std::string &description) const;
+    void SetActivityComplete(const std::string &description);
+    void SetActivityUnComplete(const std::string &description);
 
+    //operazioni di modifica
+    bool ModifyActDescription(const std::string &oldDescription, const std::string &newDescription);
+    bool ModifyActDate(const std::string &description, const Date &Newdate);
 
 };
 

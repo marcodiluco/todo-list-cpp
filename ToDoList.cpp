@@ -30,28 +30,51 @@ void ToDoList::RemoveActivity(const std::string &description) {
     }
 }
 
-bool ToDoList::CheckActivity(const std::string& description) const {
-    for (auto flag=TodoList.begin(); flag!=TodoList.end(); flag++) {
-        if (flag->GetDescription() == description){
+bool ToDoList::CheckActivity(const std::string &description) const {
+    for (auto flag=TodoList.begin(); flag!=TodoList.end(); flag++){
+        if (flag->GetDescription()==description){
             return flag->IsComplete();
         }
     }
     std::cout << "attività non trovata!!" << std::endl;
     return false;
 }
-void ToDoList::SetActivityComplete(const std::string& description) {
-    for (auto flag=TodoList.begin(); flag!=TodoList.end(); flag++) {
-        if (flag->GetDescription() == description){
+void ToDoList::SetActivityComplete(const std::string &description) {
+    for (auto flag=TodoList.begin(); flag!=TodoList.end(); flag++){
+        if (flag->GetDescription()==description){
             flag->SetComplete();
             break;
         }
     }
 }
 void ToDoList::SetActivityUnComplete(const std::string &description) {
-    for (auto flag=TodoList.begin(); flag!=TodoList.end(); flag++) {
-        if (flag->GetDescription() == description) {
+    for (auto flag=TodoList.begin(); flag!=TodoList.end(); flag++){
+        if (flag->GetDescription()==description) {
             flag->SetComplete();
             break;
         }
     }
+}
+
+bool ToDoList::ModifyActDescription(const std::string &oldDescription, const std::string &newDescription) {
+    for (auto flag=TodoList.begin(); flag!=TodoList.end(); flag++){
+        if(flag->GetDescription()==oldDescription){
+            flag->SetDescription(newDescription);
+            std::cout << "descrizione modificata" << std::endl;
+            return true;
+        }
+    }
+    std::cout << "descrizione non trovata!!" << std::endl;
+    return false;
+}
+bool ToDoList::ModifyActDate(const std::string &description, const Date &Newdate) {
+    for (auto flag=TodoList.begin(); flag!=TodoList.end(); flag++){
+        if(flag->GetDescription()==description){
+            flag->SetDate(Newdate);
+            std::cout << "data modificata" << std::endl;
+            return true;
+        }
+    }
+    std::cout << "descrizione non trovata!!" << std::endl;
+    return false;
 }
