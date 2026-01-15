@@ -10,7 +10,6 @@ private:
     int Year;
 
     bool IsBisestile(int Year) const;
-    int DaysAvailable(int Month,int Year) const;
 
 public:
     Date() : Day(1),Month(1),Year(2000){}
@@ -26,6 +25,7 @@ public:
     void SetYear(int year);
 
     void PrintCurrentDate() const;
+    int DaysAvailable(int Month,int Year) const;
 };
 
 #endif
