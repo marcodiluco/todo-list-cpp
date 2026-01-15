@@ -8,5 +8,7 @@ int main(){
     bool stop=false;
     int option;
 
+    std::cout << "*********** Benvenuto nella " << std::endl;
+
 
 };

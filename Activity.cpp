@@ -33,7 +33,7 @@ void Activity::PrintActivity() const {
     }else{
         std::cout << "[] : ";
     }
-    std::cout << Description << " - scadenza: ";
+    std::cout << Description << " - expiration date: ";
     date.PrintCurrentDate();
     std::cout << std::endl;
 }

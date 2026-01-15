@@ -45,26 +45,26 @@ void Date::SetDay(int day){
     if(day>=1 && day<=DaysAvailable(Month,Year))
         Day=day;
     else
-        std::cout << "errore!!,giorno non valido per questo mese e anno!!" << std::endl;
+        std::cout << "Error!!, day not valid for this month and year!!" << std::endl;
 }
 void Date::SetMonth(int month){
     if(month>=1 && month<=12) {
         Month = month;
         if (Day>DaysAvailable(Month, Year)) {                      //controllo che il giorno corrente vada bene per il mese scelto ora
-            std::cout << "errore!!,giorno attuale non valido per questo mese!!" << std::endl;
+            std::cout << "Error!!, day not valid for this month and year!!" << std::endl;
         }
     }else{
-        std::cout << "errore!!,mese non valido!!" << std::endl;
+        std::cout << "Error!!,month not valid!!" << std::endl;
     }
 }
 void Date::SetYear(int year){
     if(year>0){
         Year=year;
         if(Month==2 && Day>DaysAvailable(Month, Year)){             //controlliamo solo febbraio perchè cambiando l'anno solo febbraio cambia i giorni
-            std::cout << "errore!!,ti ricordo che febbraio è bisestile!!" << std::endl;                           //gli altri sono fissi
+            std::cout << "Error!!,I remind you that February is a leap year!!" << std::endl;                           //gli altri sono fissi
         }
     }else{
-        std::cout << "errore!!,anno non valido!!" << std::endl;
+        std::cout << "Error!!,Year not valid!!" << std::endl;
     }
 }
 

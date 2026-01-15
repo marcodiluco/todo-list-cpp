@@ -38,7 +38,7 @@ bool ToDoList::CheckActivity(const std::string &description) const {
             return flag->IsComplete();
         }
     }
-    std::cout << "attività non trovata!!" << std::endl;
+    std::cout << "Activity not found!!" << std::endl;
     return false;
 }
 void ToDoList::SetActivityComplete(const std::string &description) {
@@ -62,29 +62,29 @@ bool ToDoList::ModifyActDescription(const std::string &oldDescription, const std
     for (auto flag=TodoList.begin(); flag!=TodoList.end(); flag++){
         if(flag->GetDescription()==oldDescription){
             flag->SetDescription(newDescription);
-            std::cout << "descrizione modificata" << std::endl;
+            std::cout << "Description modified" << std::endl;
             return true;
         }
     }
-    std::cout << "descrizione non trovata!!" << std::endl;
+    std::cout << "Description not Found!!" << std::endl;
     return false;
 }
 bool ToDoList::ModifyActDate(const std::string &description, const Date &Newdate) {
     for (auto flag=TodoList.begin(); flag!=TodoList.end(); flag++){
         if(flag->GetDescription()==description){
             flag->SetDate(Newdate);
-            std::cout << "data modificata" << std::endl;
+            std::cout << "date modified" << std::endl;
             return true;
         }
     }
-    std::cout << "descrizione non trovata!!" << std::endl;
+    std::cout << "Description not Found!!" << std::endl;
     return false;
 }
 
 void ToDoList::PrintAllActivity() const {
     std::cout << "<<<<<<<   " << Title << "   >>>>>>>" << std::endl;
     if(TodoList.empty()){
-        std::cout << "nessuna attività ancora presente!!" << std::endl;
+        std::cout << "no activity yet!!" << std::endl;
     }
     int i=1;
     for(const auto &activity : TodoList){
@@ -94,7 +94,7 @@ void ToDoList::PrintAllActivity() const {
     }
 }
 void ToDoList::PrintCompletedActivities() const {
-    std::cout << "<<<<<<<   " << Title << ", completate!" << "   >>>>>>>" << std::endl;
+    std::cout << "<<<<<<<   " << Title << ", complete!" << "   >>>>>>>" << std::endl;
     bool j=false;
     for(const auto &activity : TodoList){
         if (activity.IsComplete()) {
@@ -103,11 +103,11 @@ void ToDoList::PrintCompletedActivities() const {
         }
     }
     if(j==false){
-        std::cout << "nessuna attività completata!!" << std::endl;
+        std::cout << "No activity completed!!" << std::endl;
     }
 }
 void ToDoList::PrintUnCompleteActivities() const {
-    std::cout << "<<<<<<<   " << Title << ", da fare!" << "   >>>>>>>" << std::endl;
+    std::cout << "<<<<<<<   " << Title << ", to do!" << "   >>>>>>>" << std::endl;
     bool j=false;
     for(const auto &activity : TodoList){
         if (!activity.IsComplete()) {
@@ -116,7 +116,7 @@ void ToDoList::PrintUnCompleteActivities() const {
         }
     }
     if(j==false){
-        std::cout << "nessuna attività da fare!!" << std::endl;
+        std::cout << "no activity to do!!" << std::endl;
     }
 }
 
