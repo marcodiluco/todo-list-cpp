@@ -78,3 +78,42 @@ bool ToDoList::ModifyActDate(const std::string &description, const Date &Newdate
     std::cout << "descrizione non trovata!!" << std::endl;
     return false;
 }
+
+void ToDoList::PrintAllActivity() const {
+    std::cout << "<<<<<<<   " << Title << "   >>>>>>>" << std::endl;
+    if(TodoList.empty()){
+        std::cout << "nessuna attività ancora presente!!" << std::endl;
+    }
+    int i=1;
+    for(const auto &activity : TodoList){
+        std::cout << i << ") ";
+        activity.PrintActivity();
+        i++;
+    }
+}
+void ToDoList::PrintCompletedActivities() const {
+    std::cout << "<<<<<<<   " << Title << ", completate!" << "   >>>>>>>" << std::endl;
+    bool j=false;
+    for(const auto &activity : TodoList){
+        if (activity.IsComplete()) {
+            activity.PrintActivity();
+            j=true;
+        }
+    }
+    if(j==false){
+        std::cout << "nessuna attività completata!!" << std::endl;
+    }
+}
+void ToDoList::PrintUnCompleteActivities() const {
+    std::cout << "<<<<<<<   " << Title << ", da fare!" << "   >>>>>>>" << std::endl;
+    bool j=false;
+    for(const auto &activity : TodoList){
+        if (!activity.IsComplete()) {
+            activity.PrintActivity();
+            j=true;
+        }
+    }
+    if(j==false){
+        std::cout << "nessuna attività da fare!!" << std::endl;
+    }
+}

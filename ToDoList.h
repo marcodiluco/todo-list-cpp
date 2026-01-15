@@ -34,6 +34,11 @@ public:
     bool ModifyActDescription(const std::string &oldDescription, const std::string &newDescription);
     bool ModifyActDate(const std::string &description, const Date &Newdate);
 
+    //scrittura
+    void PrintAllActivity() const;
+    void PrintCompletedActivities() const;
+    void PrintUnCompleteActivities() const;
+
 };
 
 #endif
