@@ -46,21 +46,23 @@ bool ToDoList::CheckActivity(const std::string &description) const {
     std::cout << "Activity not found!!" << std::endl;
     return false;
 }
-void ToDoList::SetActivityComplete(const std::string &description) {
+bool ToDoList::SetActivityComplete(const std::string &description) {
     for (auto flag=TodoList.begin(); flag!=TodoList.end(); flag++){
         if (flag->GetDescription()==description){
             flag->SetComplete();
-            break;
+            return true;
         }
     }
+    return false;
 }
-void ToDoList::SetActivityUnComplete(const std::string &description) {
+bool ToDoList::SetActivityUnComplete(const std::string &description) {
     for (auto flag=TodoList.begin(); flag!=TodoList.end(); flag++){
         if (flag->GetDescription()==description) {
             flag->SetComplete();
-            break;
+            return true;
         }
     }
+    return false;
 }
 
 bool ToDoList::ModifyActDescription(const std::string &oldDescription, const std::string &newDescription) {
