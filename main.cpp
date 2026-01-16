@@ -190,9 +190,31 @@ int main(){
                         std::cout << "Activity not found!!" << std::endl;
                 break;
             }
+            case 11:{
+                std::string filename;
+                std::cout << "Enter filename to save: ";
+                std::cin.ignore();
+                std::getline(std::cin,filename);
+                if (MyList.SaveToFile(filename))
+                    std::cout << "Activities saved successfully." <<std::endl;
+                else
+                    std::cout << "Error saving file." <<std::endl;
+                break;
+            }
 
-
-
+            case 12: {
+                std::string filename;
+                std::cout << "Enter filename to load: ";
+                std::cin.ignore();
+                std::getline(std::cin, filename);
+                if (MyList.LoadToFile(filename))
+                    std::cout << "Activities loaded successfully." <<std::endl;
+                else
+                    std::cout << "Error loading file." <<std::endl;
+                break;
+            }
+            default:
+                std::cout << "Invalid option please choose a number between ( 1 / 12 )" << std::endl;
         }
     }while(!stop);
 
