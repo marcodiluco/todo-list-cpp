@@ -14,7 +14,7 @@ void testDaysInMonths() {
     assert(d.DaysAvailable(4, 2023) == 30); // aprile
 }
 //testo setter and getter
-void testSetValidDate() {
+void testSetAndGet() {
     Date d;
     d.SetYear(2023);
     d.SetMonth(5);

@@ -11,7 +11,8 @@ add_executable(ToDoList
         Activity.h
         ToDoList.h
         ToDoList.cpp
-        TestDate.cpp)
+        TestDate.cpp
+        TestActivity.cpp)
 target_link_libraries(ToDoList core)
 
 
