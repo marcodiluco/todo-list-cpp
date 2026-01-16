@@ -28,7 +28,7 @@ public:
     void ClearAllActivities();
 
     //operazioni di check delle attività: sono state fatte?,la spunto perchè fatta o tolgo spunta perchè da fare o rifare
-    bool CheckActivity(const std::string &description) const;
+    bool CheckActivity(const std::string &description, bool &found) const;
     bool SetActivityComplete(const std::string &description);
     bool SetActivityUnComplete(const std::string &description);
 

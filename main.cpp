@@ -157,7 +157,7 @@ int main(){
                 std::cout << "Enter description of activity to mark as not completed: ";
                 std::cin.ignore();
                 std::getline(std::cin, description);
-                if(MyList.SetActivityComplete(description))
+                if(MyList.SetActivityUnComplete(description))
                     std::cout << "Mark as uncompleted successfully" << std::endl;
                 else
                     std::cout << "No activity found with that description." << std::endl;
@@ -175,6 +175,22 @@ int main(){
                 MyList.PrintUnCompleteActivities();
                 break;
             }
+            case 10:{
+                std::string description;
+                bool found=false;
+                std::cout << "Enter description of activity to check: ";
+                std::cin.ignore();
+                std::getline(std::cin, description);
+                if (MyList.CheckActivity(description,found))
+                    std::cout << "Activity: " << description << " is completed." << std::endl;
+                else
+                    if(found==true)
+                        std::cout << "Activity: " << description << " is NOT completed." << std::endl;
+                    else
+                        std::cout << "Activity not found!!" << std::endl;
+                break;
+            }
+
 
 
         }

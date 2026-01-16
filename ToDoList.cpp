@@ -37,13 +37,14 @@ void ToDoList::ClearAllActivities(){
     TodoList.clear();
 }
 
-bool ToDoList::CheckActivity(const std::string &description) const {
+bool ToDoList::CheckActivity(const std::string &description, bool &found) const {
     for (auto flag=TodoList.begin(); flag!=TodoList.end(); flag++){
         if (flag->GetDescription()==description){
+            found=true;
             return flag->IsComplete();
         }
     }
-    std::cout << "Activity not found!!" << std::endl;
+    found=false;
     return false;
 }
 bool ToDoList::SetActivityComplete(const std::string &description) {
@@ -58,7 +59,7 @@ bool ToDoList::SetActivityComplete(const std::string &description) {
 bool ToDoList::SetActivityUnComplete(const std::string &description) {
     for (auto flag=TodoList.begin(); flag!=TodoList.end(); flag++){
         if (flag->GetDescription()==description) {
-            flag->SetComplete();
+            flag->SetUnComplete();
             return true;
         }
     }
