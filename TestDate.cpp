@@ -8,13 +8,13 @@ void TestDefaultConstructor() {
     assert(d.GetMonth() == 1);
     assert(d.GetYear() == 2000);
 }
-void testDaysInMonths() {
+void TestDaysInMonths() {
     Date d;
     assert(d.DaysAvailable(1, 2023) == 31); // gennaio
     assert(d.DaysAvailable(4, 2023) == 30); // aprile
 }
 //testo setter and getter
-void testSetAndGet() {
+void TestSetAndGet() {
     Date d;
     d.SetYear(2023);
     d.SetMonth(5);
@@ -24,7 +24,7 @@ void testSetAndGet() {
     assert(d.GetMonth() == 5);
     assert(d.GetYear() == 2023);
 }
-void testInvalidDay() {
+void TestInvalidDay() {
     Date d;
     d.SetMonth(2);
     d.SetYear(2023); // febbraio non bisestile
@@ -32,9 +32,21 @@ void testInvalidDay() {
 
     assert(d.GetDay() != 30);
 }
-void testInvalidMonth() {
+void TestInvalidMonth() {
     Date d;
     d.SetMonth(13);
 
     assert(d.GetMonth() >= 1 && d.GetMonth() <= 12);
 }
+
+int main(){
+
+    TestDefaultConstructor();
+    TestDaysInMonths();
+    TestSetAndGet();
+    TestInvalidDay();
+    TestInvalidMonth();
+
+    return 0;
+
+};

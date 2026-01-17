@@ -77,3 +77,16 @@ void TestModifyDate(){
     assert(it->GetDate().GetYear() == 2026);
 }
 
+int main(){
+
+    TestConstructorAndTitle();
+    TestAddAndRemoveActivity();
+    TestClearAllActivities();
+    TestSetComplete();
+    TestModifyDescription();
+    TestModifyDate();
+
+    return 0;
+
+}
+

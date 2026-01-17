@@ -28,7 +28,7 @@ void TestComplete() {
     a.SetUnComplete();
     assert(a.IsComplete() == false);
 }
-void testSetDescription() {
+void TestSetDescription() {
     Date d;
     Activity a("Vecchia descrizione", d);
 
@@ -51,4 +51,15 @@ void TestSetDate() {
     assert(a.GetDate().GetDay() == 20);
     assert(a.GetDate().GetMonth() == 12);
     assert(a.GetDate().GetYear() == 2026);
+}
+
+int main(){
+
+    TestActivityConstructor();
+    TestComplete();
+    TestSetDescription();
+    TestSetDate();
+
+    return 0;
+
 }
