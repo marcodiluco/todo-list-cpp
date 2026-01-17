@@ -40,7 +40,7 @@ void TestSetComplete(){
     assert(t.CheckActivity("Studiare",found) == false);
     assert(found == true);
     t.SetActivityComplete("Studiare");
-    assert(t.CheckActivity("Studiareo",found) == true);
+    assert(t.CheckActivity("Studiare",found) == true);
     t.SetActivityUnComplete("Studiare");
     assert(t.CheckActivity("Studiare",found) == false);
 }
