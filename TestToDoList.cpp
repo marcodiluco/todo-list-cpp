@@ -9,6 +9,7 @@ void TestConstructorAndTitle(){
     assert(t.GetTitle() == "Test");
     t.SetTitle("New Test");
     assert(t.GetTitle() == "New Test");
+    std::cout << "Test OK!!" << std::endl;
 }
 void TestAddAndRemoveActivity(){
     ToDoList t("Test");
@@ -21,6 +22,7 @@ void TestAddAndRemoveActivity(){
     assert(removed == true);
     assert(t.GetToDoList().empty());
     assert(t.RemoveActivity("Non esiste") == false);
+    std::cout << "Test OK!!" << std::endl;
 }
 void TestClearAllActivities(){
     ToDoList t("Test");
@@ -30,6 +32,7 @@ void TestClearAllActivities(){
 
     t.ClearAllActivities();
     assert(t.GetToDoList().empty());
+    std::cout << "Test OK!!" << std::endl;
 }
 void TestSetComplete(){
     ToDoList t("Test");
@@ -43,6 +46,7 @@ void TestSetComplete(){
     assert(t.CheckActivity("Studiare",found) == true);
     t.SetActivityUnComplete("Studiare");
     assert(t.CheckActivity("Studiare",found) == false);
+    std::cout << "Test OK!!" << std::endl;
 }
 void TestModifyDescription(){
     ToDoList t("Test");
@@ -54,6 +58,7 @@ void TestModifyDescription(){
     bool found;
     t.CheckActivity("Mangiare",found);
     assert(found == true);
+    std::cout << "Test OK!!" << std::endl;
 }
 void TestModifyDate(){
     ToDoList t("Test");
@@ -75,6 +80,7 @@ void TestModifyDate(){
     assert(it->GetDate().GetDay() == 20);
     assert(it->GetDate().GetMonth() == 12);
     assert(it->GetDate().GetYear() == 2026);
+    std::cout << "Test OK!!" << std::endl;
 }
 
 int main(){

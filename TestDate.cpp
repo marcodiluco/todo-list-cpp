@@ -7,11 +7,13 @@ void TestDefaultConstructor() {
     assert(d.GetDay() == 1);
     assert(d.GetMonth() == 1);
     assert(d.GetYear() == 2000);
+    std::cout << "Test OK!!" << std::endl;
 }
 void TestDaysInMonths() {
     Date d;
     assert(d.DaysAvailable(1, 2023) == 31); // gennaio
     assert(d.DaysAvailable(4, 2023) == 30); // aprile
+    std::cout << "Test OK!!" << std::endl;
 }
 //testo setter and getter
 void TestSetAndGet() {
@@ -23,6 +25,7 @@ void TestSetAndGet() {
     assert(d.GetDay() == 15);
     assert(d.GetMonth() == 5);
     assert(d.GetYear() == 2023);
+    std::cout << "Test OK!!" << std::endl;
 }
 void TestInvalidDay() {
     Date d;
@@ -31,12 +34,14 @@ void TestInvalidDay() {
     d.SetDay(30);    // giorno non valido
 
     assert(d.GetDay() != 30);
+    std::cout << "Test OK!!" << std::endl;
 }
 void TestInvalidMonth() {
     Date d;
     d.SetMonth(13);
 
     assert(d.GetMonth() >= 1 && d.GetMonth() <= 12);
+    std::cout << "Test OK!!" << std::endl;
 }
 
 int main(){

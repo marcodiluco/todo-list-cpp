@@ -18,6 +18,7 @@ void TestActivityConstructor() {
     assert(a.GetDate().GetYear() == 2026);
     // Controlla stato iniziale
     assert(a.IsComplete() == false);
+    std::cout << "Test OK!!" << std::endl;
 }
 void TestComplete() {
     Date d;
@@ -27,6 +28,7 @@ void TestComplete() {
     assert(a.IsComplete() == true);
     a.SetUnComplete();
     assert(a.IsComplete() == false);
+    std::cout << "Test OK!!" << std::endl;
 }
 void TestSetDescription() {
     Date d;
@@ -34,6 +36,7 @@ void TestSetDescription() {
 
     a.SetDescription("Nuova descrizione");
     assert(a.GetDescription() == "Nuova descrizione");
+    std::cout << "Test OK!!" << std::endl;
 }
 void TestSetDate() {
     Date d1;
@@ -51,6 +54,7 @@ void TestSetDate() {
     assert(a.GetDate().GetDay() == 20);
     assert(a.GetDate().GetMonth() == 12);
     assert(a.GetDate().GetYear() == 2026);
+    std::cout << "Test OK!!" << std::endl;
 }
 
 int main(){
