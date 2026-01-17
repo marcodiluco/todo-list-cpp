@@ -6,6 +6,7 @@
 
 int main(){
     ToDoList MyList;
+    bool listCreate=false;
     bool stop=false;
     int option;
 
@@ -43,10 +44,16 @@ int main(){
                 std::getline(std::cin,title);
                 MyList.SetTitle(title);
                 MyList.ClearAllActivities();
+                listCreate=true;
                 std::cout << "New ToDo List: " << MyList.GetTitle() << " created!" << std::endl;
                 break;
             }
             case 2:{
+                if (!listCreate){
+                    std::cout << "Please create a ToDoList first (option 1)." << std::endl;
+                    break;
+                }
+
                 std::string description;
                 int day,month,year;
                 Date date;
@@ -81,6 +88,11 @@ int main(){
                 break;
             }
             case 3:{
+                if (!listCreate){
+                    std::cout << "Please create a ToDoList first (option 1)." << std::endl;
+                    break;
+                }
+
                 std::string description;
                 std::cout << "Enter description of activity to remove: " << std::endl;
                 std::cin.ignore();
@@ -92,6 +104,11 @@ int main(){
                 break;
             }
             case 4: {
+                if (!listCreate){
+                    std::cout << "Please create a ToDoList first (option 1)." << std::endl;
+                    break;
+                }
+
                 std::string description,NewDescription;
                 int day, month, year;
                 Date newDate;
@@ -143,6 +160,11 @@ int main(){
                 break;
             }
             case 5: {
+                if (!listCreate){
+                    std::cout << "Please create a ToDoList first (option 1)." << std::endl;
+                    break;
+                }
+
                 std::string description;
                 std::cout << "Enter description of activity to mark as completed: ";
                 std::cin.ignore();
@@ -154,6 +176,11 @@ int main(){
                 break;
             }
             case 6: {
+                if (!listCreate){
+                    std::cout << "Please create a ToDoList first (option 1)." << std::endl;
+                    break;
+                }
+
                 std::string description;
                 std::cout << "Enter description of activity to mark as not completed: ";
                 std::cin.ignore();
@@ -165,18 +192,38 @@ int main(){
                 break;
             }
             case 7:{
+                if (!listCreate){
+                    std::cout << "Please create a ToDoList first (option 1)." << std::endl;
+                    break;
+                }
+
                 MyList.PrintAllActivity();
                 break;
             }
             case 8:{
+                if (!listCreate){
+                    std::cout << "Please create a ToDoList first (option 1)." << std::endl;
+                    break;
+                }
+
                 MyList.PrintCompletedActivities();
                 break;
             }
             case 9:{
+                if (!listCreate){
+                    std::cout << "Please create a ToDoList first (option 1)." << std::endl;
+                    break;
+                }
+
                 MyList.PrintUnCompleteActivities();
                 break;
             }
             case 10:{
+                if (!listCreate){
+                    std::cout << "Please create a ToDoList first (option 1)." << std::endl;
+                    break;
+                }
+
                 std::string description;
                 bool found=false;
                 std::cout << "Enter description of activity to check: ";
@@ -192,6 +239,11 @@ int main(){
                 break;
             }
             case 11:{
+                if (!listCreate){
+                    std::cout << "Please create a ToDoList first (option 1)." << std::endl;
+                    break;
+                }
+
                 std::string filename;
                 std::cout << "Enter filename to save: ";
                 std::cin.ignore();
@@ -204,6 +256,11 @@ int main(){
             }
 
             case 12: {
+                if (!listCreate){
+                    std::cout << "Please create a ToDoList first (option 1)." << std::endl;
+                    break;
+                }
+
                 std::string filename;
                 std::cout << "Enter filename to load: ";
                 std::cin.ignore();
