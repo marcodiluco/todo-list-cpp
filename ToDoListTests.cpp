@@ -95,4 +95,24 @@ TEST(ToDoListTest,ConstructorAndSetGetTitle){
     list.SetTitle("Test.5b");
     EXPECT_EQ(list.GetTitle(), "Test.5b");
 }
+TEST(ToDoListTest,AddRemoveClearActivity){
+    ToDoList list("Test.6");
+    Date d;
+    Activity a("Test.6a", d);
+    Activity b("Test.6b", d);
+
+    list.AddActivity(a);
+    list.AddActivity(b);
+    EXPECT_EQ(list.GetToDoList().size(), 2);
+
+    bool removed=list.RemoveActivity("Test.6a");
+    EXPECT_TRUE(removed);
+    EXPECT_EQ(list.GetToDoList().size(), 1);
+    removed=list.RemoveActivity("Test.6c");
+    EXPECT_FALSE(removed);
+    EXPECT_EQ(list.GetToDoList().size(), 1);
+
+    list.ClearAllActivities();
+    EXPECT_EQ(list.GetToDoList().size(), 0);
+}
 
