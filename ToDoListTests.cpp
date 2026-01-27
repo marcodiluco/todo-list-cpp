@@ -75,12 +75,13 @@ TEST(ActivityTest,SetDescription){
 TEST(ActivityTest,SetDate){
     Date d1;
     Date d2;
-    d2.SetDay(15);
+    d2.SetDay(13);
     d2.SetMonth(8);
     d2.SetYear(2025);
     Activity a("Test.4", d1);
     a.SetDate(d2);
-    EXPECT_EQ(a.GetDate().GetDay(), 15);
+
+    EXPECT_EQ(a.GetDate().GetDay(), 13);
     EXPECT_EQ(a.GetDate().GetMonth(), 8);
     EXPECT_EQ(a.GetDate().GetYear(), 2025);
 }
@@ -115,4 +116,49 @@ TEST(ToDoListTest,AddRemoveClearActivity){
     list.ClearAllActivities();
     EXPECT_EQ(list.GetToDoList().size(), 0);
 }
+TEST(ToDoListTest,CompleteStatus){
+    ToDoList list("Test.7");
+    Date d;
+    Activity a("Test.7a", d);
+    list.AddActivity(a);
 
+    bool found;
+    EXPECT_FALSE(list.CheckActivity("Test.7a", found));
+    EXPECT_TRUE(found);
+    list.SetActivityComplete("Test.7a");
+    EXPECT_TRUE(list.CheckActivity("Test.7a", found));
+    list.SetActivityUnComplete("Test.7a");
+    EXPECT_FALSE(list.CheckActivity("Test.7a", found));
+
+    EXPECT_FALSE(list.CheckActivity("Test.7b", found));       // Test attività che non esiste
+    EXPECT_FALSE(found);
+}
+TEST(ToDoListTest,ModifyActDescription){
+    ToDoList list("Test.8");
+    Date d;
+    Activity a("Test.8a", d);
+    list.AddActivity(a);
+
+    EXPECT_TRUE(list.ModifyActDescription("Test.8a", "Test.8b"));
+    EXPECT_EQ(list.GetToDoList().front().GetDescription(), "Test.8b");
+
+    EXPECT_FALSE(list.ModifyActDescription("Test.8c", "Test.8d"));
+}
+TEST(ToDoListTest, ModifyActDate) {
+    ToDoList list("Test.9");
+    Date d;
+    Activity a("Test.9a", d);
+    list.AddActivity(a);
+    Date newDate;
+    newDate.SetDay(10);
+    newDate.SetMonth(5);
+    newDate.SetYear(2025);
+
+    EXPECT_TRUE(list.ModifyActDate("Test.9a", newDate));
+    const Date& testdate=list.GetToDoList().front().GetDate();
+    EXPECT_EQ(testdate.GetDay(), 10);
+    EXPECT_EQ(testdate.GetMonth(), 5);
+    EXPECT_EQ(testdate.GetYear(), 2025);
+
+    EXPECT_FALSE(list.ModifyActDate("Test.9b", newDate));
+}
