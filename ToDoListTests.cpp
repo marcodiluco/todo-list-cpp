@@ -33,8 +33,8 @@ TEST(DateTest,SetMonthInvalid){
 }
 TEST(DateTest,SetYearInvalid){
     Date d;
-    d.SetYear(-5);
-    EXPECT_NE(d.GetYear(), -5);
+    d.SetYear(-2);
+    EXPECT_NE(d.GetYear(), -2);
 }
 TEST(DateTest,DaysAvailable){
     Date d;
@@ -46,16 +46,47 @@ TEST(DateTest,DaysAvailable){
 }
 
 
+
 // ----------  TEST ACTIVITY  ----------
 
-TEST(ActivityTest,ConstructorAndGetters) {
+TEST(ActivityTest,ConstructorAndGetters){
     Date d;
-    Activity a("Test", d);
-
-    EXPECT_EQ(a.GetDescription(), "Test");
+    Activity a("Test.1", d);
+    EXPECT_EQ(a.GetDescription(), "Test.1");
     EXPECT_EQ(a.GetDate().GetDay(), d.GetDay());
     EXPECT_EQ(a.GetDate().GetMonth(), d.GetMonth());
     EXPECT_EQ(a.GetDate().GetYear(), d.GetYear());
     EXPECT_FALSE(a.IsComplete());
 }
+TEST(ActivityTest,CompleteStatus){
+    Date d;
+    Activity a("Test.2", d);
+    a.SetComplete();
+    EXPECT_TRUE(a.IsComplete());
+    a.SetUnComplete();
+    EXPECT_FALSE(a.IsComplete());
+}
+TEST(ActivityTest,SetDescription){
+    Date d;
+    Activity a("Test.3a", d);
+    a.SetDescription("Test.3b");
+    EXPECT_EQ(a.GetDescription(), "Test.3b");
+}
+TEST(ActivityTest,SetDate){
+    Date d1;
+    Date d2;
+    d2.SetDay(15);
+    d2.SetMonth(8);
+    d2.SetYear(2025);
+    Activity a("Test.4", d1);
+    a.SetDate(d2);
+    EXPECT_EQ(a.GetDate().GetDay(), 15);
+    EXPECT_EQ(a.GetDate().GetMonth(), 8);
+    EXPECT_EQ(a.GetDate().GetYear(), 2025);
+}
+
+
+
+// ----------  TEST TODOLIST  ----------
+
 
