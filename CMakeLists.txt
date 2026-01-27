@@ -12,27 +12,7 @@ add_executable(ToDoList
         ToDoList.h
         ToDoList.cpp
         )
-add_executable(TestDate
-        TestDate.cpp
-        Date.cpp
-        Date.h
-)
-add_executable(TestActivity
-        TestActivity.cpp
-        Activity.cpp
-        Activity.h
-        Date.cpp
-        Date.h
-)
-add_executable(TestToDoList
-        TestToDoList.cpp
-        Activity.cpp
-        Activity.h
-        Date.cpp
-        Date.h
-        ToDoList.cpp
-        ToDoList.h
-)
+
 
 
 
