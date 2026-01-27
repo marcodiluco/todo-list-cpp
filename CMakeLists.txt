@@ -11,7 +11,6 @@ add_executable(ToDoList
         Activity.h
         ToDoList.h
         ToDoList.cpp
-        ToDoListTests.cpp
 )
 
 

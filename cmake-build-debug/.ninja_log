@@ -1,0 +1,12 @@
+# ninja log v5
+109	1569	7912214803008672	CMakeFiles/ToDoListTests.dir/Activity.cpp.obj	56c334296f602203
+299	1611	7912214803431604	CMakeFiles/ToDoListTests.dir/Date.cpp.obj	c4950a71164fdece
+165	1724	7912214804718384	CMakeFiles/ToDoListTests.dir/ToDoList.cpp.obj	b28338f857c4f407
+2	2847	7912214815947492	CMakeFiles/ToDoListTests.dir/ToDoListTests.cpp.obj	ca6f56f0327eb42
+489	3161	7912214819141740	_deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.obj	db6cc9900bace34d
+407	11169	7912214898972084	_deps/googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.obj	ebf448b2a871f523
+11174	15411	7912214941657307	lib/libgtest.a	1c2fce93259c309f
+15411	15718	7912214944744160	lib/libgtest_main.a	1ede36c9e80f3af1
+15718	22391	7912215011356585	ToDoListTests.exe	66251a2aa2b0ab1e
+15718	22391	7912215011356585	ToDoListTests[1]_tests.cmake	66251a2aa2b0ab1e
+15718	22391	7912215011356585	C:/Users/39345/OneDrive/Desktop/ToDoList/cmake-build-debug/ToDoListTests[1]_tests.cmake	66251a2aa2b0ab1e
