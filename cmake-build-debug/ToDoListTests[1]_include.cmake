@@ -1,0 +1,5 @@
+if(EXISTS "C:/Users/39345/OneDrive/Desktop/ToDoList/cmake-build-debug/ToDoListTests[1]_tests.cmake")
+  include("C:/Users/39345/OneDrive/Desktop/ToDoList/cmake-build-debug/ToDoListTests[1]_tests.cmake")
+else()
+  add_test(ToDoListTests_NOT_BUILT ToDoListTests_NOT_BUILT)
+endif()
