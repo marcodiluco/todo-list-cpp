@@ -89,4 +89,10 @@ TEST(ActivityTest,SetDate){
 
 // ----------  TEST TODOLIST  ----------
 
+TEST(ToDoListTest,ConstructorAndSetGetTitle){
+    ToDoList list("Test.5a");
+    EXPECT_EQ(list.GetTitle(), "Test.5a");
+    list.SetTitle("Test.5b");
+    EXPECT_EQ(list.GetTitle(), "Test.5b");
+}
 
