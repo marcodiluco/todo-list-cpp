@@ -1,5 +1,7 @@
 #include "gtest/gtest.h"
 #include "Date.h"
+#include "Activity.h"
+#include "ToDoList.h"
 
 // ----------  TEST DATE  ----------
 
@@ -42,3 +44,18 @@ TEST(DateTest,DaysAvailable){
     EXPECT_EQ(d.DaysAvailable(4, 2023), 30);
     EXPECT_EQ(d.DaysAvailable(12, 2023), 31);
 }
+
+
+// ----------  TEST ACTIVITY  ----------
+
+TEST(ActivityTest,ConstructorAndGetters) {
+    Date d;
+    Activity a("Test", d);
+
+    EXPECT_EQ(a.GetDescription(), "Test");
+    EXPECT_EQ(a.GetDate().GetDay(), d.GetDay());
+    EXPECT_EQ(a.GetDate().GetMonth(), d.GetMonth());
+    EXPECT_EQ(a.GetDate().GetYear(), d.GetYear());
+    EXPECT_FALSE(a.IsComplete());
+}
+
