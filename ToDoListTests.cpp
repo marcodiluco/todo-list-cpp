@@ -2,11 +2,13 @@
 #include "Date.h"
 #include "Activity.h"
 #include "ToDoList.h"
+#include <fstream>
 
 // ----------  TEST DATE  ----------
 
 TEST(DateTest,DefaultConstructor){
     Date d;
+
     EXPECT_EQ(d.GetDay(), 1);
     EXPECT_EQ(d.GetMonth(), 1);
     EXPECT_EQ(d.GetYear(), 2000);
@@ -16,6 +18,7 @@ TEST(DateTest,Setters){
     d.SetDay(15);
     d.SetMonth(5);
     d.SetYear(2024);
+
     EXPECT_EQ(d.GetDay(), 15);
     EXPECT_EQ(d.GetMonth(), 5);
     EXPECT_EQ(d.GetYear(), 2024);
@@ -24,20 +27,24 @@ TEST(DateTest,SetDayInvalid){
     Date d;
     d.SetMonth(4); // aprile ne ha 30
     d.SetDay(31);
+
     EXPECT_NE(d.GetDay(), 31);
 }
 TEST(DateTest,SetMonthInvalid){
     Date d;
     d.SetMonth(13);
+
     EXPECT_NE(d.GetMonth(), 13);
 }
 TEST(DateTest,SetYearInvalid){
     Date d;
     d.SetYear(-2);
+
     EXPECT_NE(d.GetYear(), -2);
 }
 TEST(DateTest,DaysAvailable){
     Date d;
+
     EXPECT_EQ(d.DaysAvailable(1, 2023), 31);
     EXPECT_EQ(d.DaysAvailable(2, 2023), 28); // non bisestile
     EXPECT_EQ(d.DaysAvailable(2, 2024), 29); // bisestile
@@ -52,6 +59,7 @@ TEST(DateTest,DaysAvailable){
 TEST(ActivityTest,ConstructorAndGetters){
     Date d;
     Activity a("Test.1", d);
+
     EXPECT_EQ(a.GetDescription(), "Test.1");
     EXPECT_EQ(a.GetDate().GetDay(), d.GetDay());
     EXPECT_EQ(a.GetDate().GetMonth(), d.GetMonth());
@@ -62,6 +70,7 @@ TEST(ActivityTest,CompleteStatus){
     Date d;
     Activity a("Test.2", d);
     a.SetComplete();
+
     EXPECT_TRUE(a.IsComplete());
     a.SetUnComplete();
     EXPECT_FALSE(a.IsComplete());
@@ -69,6 +78,7 @@ TEST(ActivityTest,CompleteStatus){
 TEST(ActivityTest,SetDescription){
     Date d;
     Activity a("Test.3a", d);
+
     a.SetDescription("Test.3b");
     EXPECT_EQ(a.GetDescription(), "Test.3b");
 }
@@ -92,6 +102,7 @@ TEST(ActivityTest,SetDate){
 
 TEST(ToDoListTest,ConstructorAndSetGetTitle){
     ToDoList list("Test.5a");
+
     EXPECT_EQ(list.GetTitle(), "Test.5a");
     list.SetTitle("Test.5b");
     EXPECT_EQ(list.GetTitle(), "Test.5b");
@@ -144,7 +155,7 @@ TEST(ToDoListTest,ModifyActDescription){
 
     EXPECT_FALSE(list.ModifyActDescription("Test.8c", "Test.8d"));
 }
-TEST(ToDoListTest, ModifyActDate) {
+TEST(ToDoListTest, ModifyActDate){
     ToDoList list("Test.9");
     Date d;
     Activity a("Test.9a", d);
@@ -161,4 +172,32 @@ TEST(ToDoListTest, ModifyActDate) {
     EXPECT_EQ(testdate.GetYear(), 2025);
 
     EXPECT_FALSE(list.ModifyActDate("Test.9b", newDate));
+}
+TEST(ToDoListTest, SaveToFile){
+    ToDoList list("Test.10");
+    Date d;
+    Activity a("Test.10a", d);
+    Activity b("Test.10b", d);
+    b.SetComplete();
+    list.AddActivity(a);
+    list.AddActivity(b);
+
+    std::string filename = "test_todolist.txt";
+    EXPECT_TRUE(list.SaveToFile(filename));
+
+    //Verifica che il file esista e contenga la prima riga con il titolo
+    std::ifstream file(filename);
+    ASSERT_TRUE(file.is_open());
+
+    std::string line;
+    std::getline(file, line);
+    EXPECT_EQ(line, "Test.10");
+
+    int activityCount = 0;
+    while (std::getline(file, line)) {
+        activityCount++;
+    }
+    EXPECT_EQ(activityCount, 2);
+
+    file.close();
 }
