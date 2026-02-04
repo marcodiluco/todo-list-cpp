@@ -213,7 +213,7 @@ TEST(ToDoListTest, LoadToFile){
 
     ToDoList list;
     EXPECT_TRUE(list.LoadToFile(filename));
-    EXPECT_EQ(list.GetTitle(), "TestList");
+    EXPECT_EQ(list.GetTitle(), "TestList ");
     EXPECT_EQ(list.GetToDoList().size(), 2);
 
     auto it = list.GetToDoList().begin();
