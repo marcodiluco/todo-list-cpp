@@ -207,8 +207,8 @@ TEST(ToDoListTest, LoadToFile){
     std::ofstream file(filename);
     ASSERT_TRUE(file.is_open());
     file << "TestList \n";
-    file << "Test1;01/01/2024;0 \n";
-    file << "Test2;10/05/2025;1 \n";
+    file << "Test1;01/01/2024;0\n";
+    file << "Test2;10/05/2025;1\n";
     file.close();
 
     ToDoList list;
