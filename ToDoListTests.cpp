@@ -182,7 +182,7 @@ TEST(ToDoListTest, SaveToFile){
     list.AddActivity(a);
     list.AddActivity(b);
 
-    std::string filename = "test_todolist.txt";
+    std::string filename = "test_save.txt";
     EXPECT_TRUE(list.SaveToFile(filename));
 
     //Verifica che il file esista e contenga la prima riga con il titolo
@@ -198,6 +198,34 @@ TEST(ToDoListTest, SaveToFile){
         activityCount++;
     }
     EXPECT_EQ(activityCount, 2);
-
     file.close();
+}
+TEST(ToDoListTest, LoadToFile){
+    std::string filename = "test_load.txt";
+
+    //Creo manualmente il file
+    std::ofstream file(filename);
+    ASSERT_TRUE(file.is_open());
+    file << "TestList \n";
+    file << "Test1;01/01/2024;0 \n";
+    file << "Test2;10/05/2025;1 \n";
+    file.close();
+
+    ToDoList list;
+    EXPECT_TRUE(list.LoadToFile(filename));
+    EXPECT_EQ(list.GetTitle(), "TestList");
+    EXPECT_EQ(list.GetToDoList().size(), 2);
+
+    auto it = list.GetToDoList().begin();
+    EXPECT_EQ(it->GetDescription(), "Test1");
+    EXPECT_FALSE(it->IsComplete());
+    EXPECT_EQ(it->GetDate().GetDay(), 1);
+    EXPECT_EQ(it->GetDate().GetMonth(), 1);
+    EXPECT_EQ(it->GetDate().GetYear(), 2024);
+    it++;
+    EXPECT_EQ(it->GetDescription(), "Test2");
+    EXPECT_TRUE(it->IsComplete());
+    EXPECT_EQ(it->GetDate().GetDay(), 10);
+    EXPECT_EQ(it->GetDate().GetMonth(), 5);
+    EXPECT_EQ(it->GetDate().GetYear(), 2025);
 }
